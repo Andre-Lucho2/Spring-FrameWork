@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Instalação do Minikube no Ubuntu</title>
+  <link rel="icon" href="https://github.com/leandrocgsi/blog-images/blob/main/logos/favicon-16x16-1.png?raw=true" sizes="32x32" />
+  <style>
+    body { font-family: Arial, sans-serif; margin:0; padding:0; background:#f9f9f9; color:#1f2937; line-height:1.6; }
+    header { background:#363636; border-bottom:1px solid #e5e7eb; }
+    .header-content { max-width:800px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; padding:20px; }
+    .logo img, .stars img { max-width:200px; height:auto; }
+    main { max-width:800px; margin:40px auto; padding:0 20px; }
+    h1 { color:#111827; font-size:28px; margin-bottom:20px; text-align:center; }
+    h2 { margin-top:30px; }
+    p { margin-bottom:16px; }
+    pre { background:#f3f4f6; padding:15px; border-left:4px solid #10b981; border-radius:4px; font-family:Consolas,monospace; overflow-x:auto; }
+    .link-button { display:inline-block; margin:20px auto; padding:12px 24px; background:#2563eb; color:#fff; border-radius:6px; text-decoration:none; font-size:16px; transition:background .3s; }
+    .link-button:hover { background:#1d4ed8; }
+    footer { text-align:center; padding:40px 20px; background:#fff; margin-top:60px; border-top:1px solid #e5e7eb; }
+    .social-icons { display:flex; flex-wrap:wrap; justify-content:center; gap:12px; padding-top:30px; }
+    .social-icons a { width:52px; height:52px; background:#fff; border-radius:12px; box-shadow:0 2px 6px rgba(0,0,0,0.15); display:flex; align-items:center; justify-content:center; transition:transform .2s; text-decoration:none; }
+    .social-icons a:hover { transform:translateY(-2px); }
+    .social-icons img { max-width:36px; max-height:36px; }
+  </style>
+</head>
+<body>
+<header>
+  <div class="header-content">
+    <div class="logo"><a href="https://pub.erudio.com.br/meus-cursos"><img src="https://github.com/leandrocgsi/blog-images/blob/main/logos/cropped-teste_logo-2.png?raw=true" alt="Erudio Training"></a></div>
+    <div class="stars"><img src="https://github.com/leandrocgsi/blog-images/blob/main/logos/five_stars.png?raw=true" alt="Cinco Estrelas"></div>
+  </div>
+</header>
+
+<main>
+  <h1>Instalação do Minikube no Ubuntu</h1>
+  <p>Este passo a passo ensina como instalar o <strong>kubectl</strong> (cliente do Kubernetes) e o <strong>Minikube</strong> (cluster local Kubernetes) no Ubuntu. Cada comando está descrito com sua função para facilitar o entendimento.</p>
+
+  <h2>1. Atualizar o sistema e instalar dependências</h2>
+  <pre>
+sudo apt update
+sudo apt install -y curl apt-transport-https
+  </pre>
+  <p><strong>Explicação:</strong> Atualiza a lista de pacotes disponíveis e instala o <code>curl</code> (usado para baixar arquivos) e o suporte a HTTPS nos repositórios APT.</p>
+
+  <h2>2. Instalar o <code>kubectl</code></h2>
+  <pre>
+curl -LO "https://dl.k8s.io/release/$(curl -Ls https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+chmod +x kubectl
+sudo mv kubectl /usr/local/bin/kubectl
+kubectl version --client
+  </pre>
+  <p><strong>Explicação:</strong> Faz o download da versão estável do <code>kubectl</code>, dá permissão de execução, move o binário para o diretório de execução do sistema e testa a instalação.</p>
+
+  <h2>3. Instalar o Minikube</h2>
+  <pre>
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+sudo install minikube-linux-amd64 /usr/local/bin/minikube
+rm minikube-linux-amd64
+minikube version
+  </pre>
+  <p><strong>Explicação:</strong> Baixa o Minikube, instala no sistema, remove o arquivo temporário e verifica a versão instalada.</p>
+
+  <h2>4. Iniciar o cluster Kubernetes local</h2>
+  <pre>
+minikube start
+kubectl get nodes
+  </pre>
+  <p><strong>Explicação:</strong> Inicializa o Minikube com as configurações padrão e usa o <code>kubectl</code> para verificar se o nó (node) do cluster está ativo.</p>
+
+  <h2>5. Testar com um pod NGINX</h2>
+  <pre>
+kubectl run nginx --image=nginx
+kubectl get pods
+  </pre>
+  <p><strong>Explicação:</strong> Cria um pod executando a imagem <code>nginx</code> e lista os pods para confirmar que ele está em execução corretamente.</p>
+
+  <h2>6. Links úteis</h2>
+  <div class="button-group" style="text-align:center;">
+    <a href="https://minikube.sigs.k8s.io/docs/start/" target="_blank" class="link-button">Guia Oficial do Minikube</a>
+    <a href="https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/" target="_blank" class="link-button">Documentação do kubectl</a>
+  </div>
+</main>
+
+
+
+  <footer>
+    <div class="social-icons">
+      <a href="https://www.youtube.com/@erudiotraining" target="_blank" aria-label="YouTube">
+        <img src="https://github.com/leandrocgsi/blog-images/blob/main/logos/youtube_logo_min.png?raw=true" alt="YouTube" />
+      </a>
+      <a href="https://www.linkedin.com/company/erudiotraining" target="_blank" aria-label="LinkedIn">
+        <img src="https://github.com/leandrocgsi/blog-images/blob/main/logos/linkedin_logo_min.png?raw=true" alt="LinkedIn" />
+      </a>
+      <a href="https://github.com/leandrocgsi" target="_blank" aria-label="GitHub">
+        <img src="https://github.com/leandrocgsi/blog-images/blob/main/logos/github_logo_min.png?raw=true" alt="GitHub" />
+      </a>
+      <a href="https://pub.erudio.com.br/meus-cursos" target="_blank" aria-label="Udemy">
+        <img src="https://github.com/leandrocgsi/blog-images/blob/main/logos/udemy_logo.png?raw=true" alt="Udemy" />
+      </a>
+      <a href="https://www.instagram.com/erudiotraining" target="_blank" aria-label="Instagram">
+        <img src="https://github.com/leandrocgsi/blog-images/blob/main/logos/instagram.png?raw=true" alt="Instagram" />
+      </a>
+      <a href="https://www.facebook.com/erudiotraining" target="_blank" aria-label="Facebook">
+        <img src="https://github.com/leandrocgsi/blog-images/blob/main/logos/facebook.png?raw=true" alt="Facebook" />
+      </a>
+      <a href="https://www.threads.net/@erudiotraining" target="_blank" aria-label="Threads">
+        <img src="https://github.com/leandrocgsi/blog-images/blob/main/logos/threads.png?raw=true" alt="Threads" />
+      </a>
+      <a href="https://www.tiktok.com/@erudiotraining" target="_blank" aria-label="TikTok">
+        <img src="https://github.com/leandrocgsi/blog-images/blob/main/logos/tiktok.png?raw=true" alt="TikTok" />
+      </a>
+      <a href="https://x.com/erudiotraining" target="_blank" aria-label="X">
+        <img src="https://github.com/leandrocgsi/blog-images/blob/main/logos/twitter.png?raw=true" alt="X (Twitter)" />
+      </a>
+    </div>
+
+    <p id="copyright-text">
+      © Copyright - Erudio Training - 2011-<span id="current-year"></span> - CNPJ: 34.523.711/0001-62 - Todos os Direitos Reservados
+    </p>
+
+    <script>
+      document.getElementById("current-year").textContent = new Date().getFullYear();
+    </script>
+  </footer>
+
+</body>
+</html>
+

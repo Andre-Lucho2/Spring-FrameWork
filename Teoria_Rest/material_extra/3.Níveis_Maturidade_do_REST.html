@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Os Níveis de Maturidade de Richardson</title>
+  <link rel="icon" href="https://github.com/leandrocgsi/blog-images/blob/main/logos/favicon-16x16-1.png?raw=true" sizes="32x32"/>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      background-color: #f9f9f9;
+      color: #1f2937;
+    }
+
+    header {
+      background-color: #363636;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .header-content {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .logo img, .stars img {
+      max-width: 200px;
+      height: auto;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    h1 {
+      color: #111827;
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      margin-bottom: 16px;
+    }
+
+    .button-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .link-button {
+      display: inline-block;
+      background-color: #2563eb;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .link-button:hover {
+      background-color: #1d4ed8;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px 20px;
+      background-color: #ffffff;
+      margin-top: 60px;
+      border-top: 1px solid #e5e7eb;
+    }
+
+    .copyright {
+      font-size: 13px;
+      color: #6b7280;
+      margin-top: 20px;
+    }
+
+    .social-icons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      padding-top: 30px;
+    }
+
+    .social-icons a {
+      display: inline-block;
+      width: 52px;
+      height: 52px;
+      background-color: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s ease;
+      text-decoration: none;
+    }
+
+    .social-icons a:hover {
+      transform: translateY(-2px);
+    }
+
+    .social-icons img {
+      max-width: 36px;
+      max-height: 36px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-content">
+    <div class="logo">
+      <a href="https://pub.erudio.com.br/meus-cursos">
+        <img src="https://github.com/leandrocgsi/blog-images/blob/main/logos/cropped-teste_logo-2.png?raw=true" alt="Erudio Training">
+      </a>
+    </div>
+    <div class="stars">
+      <img src="https://github.com/leandrocgsi/blog-images/blob/main/logos/five_stars.png?raw=true" alt="Cinco Estrelas">
+    </div>
+  </div>
+</header>
+
+<main>
+  <h1>Os Níveis de Maturidade de Richardson</h1>
+
+  <p>O Modelo de Maturidade de Richardson, proposto por Leonard Richardson, é uma abordagem para classificar APIs RESTful com base em sua conformidade com os princípios REST. Ele divide a maturidade em quatro níveis:</p>
+
+  <ul>
+    <li><strong>Nível 0:</strong> Utiliza apenas um único endpoint e não aproveita os recursos do protocolo HTTP adequadamente.</li>
+    <li><strong>Nível 1:</strong> Introduz recursos distintos com URIs específicas, mas ainda pode utilizar apenas um método HTTP.</li>
+    <li><strong>Nível 2:</strong> Faz uso adequado dos métodos HTTP (GET, POST, PUT, DELETE) para manipular recursos.</li>
+    <li><strong>Nível 3:</strong> Implementa HATEOAS (Hypermedia as the Engine of Application State), permitindo que os clientes descubram dinamicamente as ações disponíveis através de hipermídia.</li>
+  </ul>
+
+  <p>Este modelo ajuda desenvolvedores a entenderem e melhorarem o design de suas APIs, promovendo uma evolução progressiva em direção a uma arquitetura RESTful completa.</p>
+
+  <div class="button-container">
+    <a href="https://www.crummy.com/writing/speaking/2008-QCon/act3.html" target="_blank" class="link-button">Apresentação de Leonard Richardson</a>
+    <a href="https://www.boaglio.com/index.php/2016/11/03/modelo-de-maturidade-de-richardson-os-passos-para-a-gloria-do-rest/" target="_blank" class="link-button">Artigo de Boaglio</a>
+    <a href="https://www.erudio.com.br/blog/entendendo-o-conceito-de-hateoas/" target="_blank" class="link-button">Entendendo o HATEOAS</a>
+    <a href="https://dzone.com/refcardz/rest-foundations-restful?chapter=3" target="_blank" class="link-button">Fundamentos do REST - DZone</a>
+    <a href="https://martinfowler.com/articles/richardsonMaturityModel.html" target="_blank" class="link-button">Artigo de Martin Fowler</a>
+  </div>
+</main>
+
+<footer>
+  <div class="social-icons">
+    <a href="https://www.youtube.com/@erudiotraining" target="_blank" aria-label="YouTube">
+      <img src="https://github.com/leandrocgsi/blog-images/blob/main/logos/youtube_logo_min.png?raw=true" alt="YouTube" />
+    </a>
+    <a href="https://www.linkedin.com/company/erudiotraining" target="_blank" aria-label="LinkedIn">
+      <img src="https://github.com/leandrocgsi/blog-images/blob/main/logos/linkedin_logo_min.png?raw=true" alt="LinkedIn" />
+    </a>
+    <a href="https://github.com/leandrocgsi" target="_blank" aria-label="GitHub">
+      <img src="https://github.com/leandrocgsi/blog-images/blob/main/logos/github_logo_min.png?raw=true" alt="GitHub" />
+    </a>
+    <a href="https://pub.erudio.com.br/meus-cursos" target="_blank" aria-label="Udemy">
+      <img src="https://github.com/leandrocgsi/blog-images/blob/main/logos/udemy_logo.png?raw=true" alt="Udemy" />
+    </a>
+    <a href="https://www.instagram.com/erudiotraining" target="_blank" aria-label="Instagram">
+      <img src="https://github.com/leandrocgsi/blog-images/blob/main/logos/instagram.png?raw=true" alt="Instagram" />
+    </a>
+    <a href="https://www.facebook.com/erudiotraining" target="_blank" aria-label="Facebook">
+      <img src="https://github.com/leandrocgsi/blog-images/blob/main/logos/facebook.png?raw=true" alt="Facebook" />
+    </a>
+    <a href="https://www.threads.net/@erudiotraining" target="_blank" aria-label="Threads">
+      <img src="https://github.com/leandrocgsi/blog-images/blob/main/logos/threads.png?raw=true" alt="Threads" />
+    </a>
+    <a href="https://www.tiktok.com/@erudiotraining" target="_blank" aria-label="TikTok">
+      <img src="https://github.com/leandrocgsi/blog-images/blob/main/logos/tiktok.png?raw=true" alt="TikTok" />
+    </a>
+    <a href="https://x.com/erudiotraining" target="_blank" aria-label="X">
+      <img src="https://github.com/leandrocgsi/blog-images/blob/main/logos/twitter.png?raw=true" alt="X (Twitter)" />
+    </a>
+  </div>
+
+  <p id="copyright-text">
+    © Copyright - Erudio Training - 2011-<span id="current-year"></span> - CNPJ: 34.523.711/0001-62 - Todos os Direitos Reservados
+  </p>
+
+  <script>
+    document.getElementById("current-year").textContent = new Date().getFullYear();
+  </script>
+</footer>
+
+</body>
+</html>
